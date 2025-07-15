@@ -61,7 +61,7 @@ public class ProductAggregate {
         if (quantity < productReserveEvent.getQuantity()) {
             throw new IllegalArgumentException("Not enough of Item to reserve");
         }
-        log.info("QUANTITY = " + quantity);
+        log.info("QUANTITY = {}", quantity);
 
         AggregateLifecycle.apply(productReserveEvent);
     }
@@ -69,7 +69,7 @@ public class ProductAggregate {
     @EventSourcingHandler
     public void on(ProductReserveEvent productReserveEvent) {
         quantity -= productReserveEvent.getQuantity();
-        log.info("After handler, QUANTITY = " + quantity);
+        log.info("After handler, QUANTITY = {}", quantity);
     }
 
     // Saga rollback, Cancel product reservation

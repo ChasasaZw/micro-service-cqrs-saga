@@ -23,8 +23,7 @@ public class ProductQueryController extends BaseProductController {
         FindProductsQuery findProductsQuery = new FindProductsQuery();
 
         CompletableFuture<List<ProductRestModel>> futureProducts = queryGateway.query(findProductsQuery, ResponseTypes.multipleInstancesOf(ProductRestModel.class));
-        List<ProductRestModel> productRestModels = futureProducts.join();
 
-        return productRestModels;
+        return futureProducts.join();
     }
 }

@@ -8,22 +8,30 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="orders-service" />
-        <module name="netflix-eureka-server" />
-        <module name="product-service" />
         <module name="payment-service" />
         <module name="shared-common" />
+        <module name="netflix-eureka-server" />
+        <module name="product-service" />
+        <module name="shipment-service" />
+        <module name="user-service" />
         <module name="api-gateway-v2" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ShipmentService" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ShipmentService" options="-parameters" />
       <module name="api-gateway-v2" options="-parameters" />
       <module name="netflix-eureka-server" options="-parameters" />
       <module name="orders-service" options="-parameters" />
       <module name="payment-service" options="-parameters" />
       <module name="product-service" options="-parameters" />
       <module name="shared-common" options="-parameters" />
+      <module name="shipment-service" options="-parameters" />
+      <module name="user-service" options="-parameters" />
     </option>
   </component>
 </project>
