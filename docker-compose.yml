@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   axonserver:
     image: axoniq/axonserver:latest
@@ -96,6 +94,32 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     networks:
       - keycloak-net
+
+  pulsar:
+    image: apachepulsar/pulsar:latest
+    container_name: pulsar
+    command: bin/pulsar standalone
+    ports:
+      - "6650:6650"     # binary protocol
+      - "8085:8080"     # Pulsar Admin REST API
+    networks:
+      - keycloak-net
+
+  pulsar-manager:
+    image: streamnative/pulsar-manager:latest
+    container_name: pulsar-manager
+    environment:
+      SPRING_CONFIGURATION_FILE: /pulsar-manager/pulsar-manager/application.properties
+    ports:
+      - "9527:9527"
+    volumes:
+      - ./pulsar-manager/pulsar-manager/application.properties:/pulsar-manager/pulsar-manager/application.properties
+    depends_on:
+      - pulsar
+    networks:
+      - keycloak-net
+
+
 
 volumes:
   postgres_data:

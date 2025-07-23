@@ -8,8 +8,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="orders-service" />
-        <module name="payment-service" />
         <module name="shared-common" />
+        <module name="payment-service" />
         <module name="netflix-eureka-server" />
         <module name="product-service" />
         <module name="shipment-service" />

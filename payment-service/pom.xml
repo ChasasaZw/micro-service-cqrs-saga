@@ -55,8 +55,17 @@
             <version>32.0.1-jre</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.pulsar</groupId>
+            <artifactId>pulsar-client</artifactId>
+            <version>3.1.0</version>
+        </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.pulsar</groupId>
+            <artifactId>spring-pulsar-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
